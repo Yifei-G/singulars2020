@@ -2,7 +2,7 @@ console.log("JavaScript carregat des d'un document .js dins el <body>");
 
 document.write("<p>Això escriu dins el body (.js extern)</p>");
 
-console.log("Aquí començen els exercicis:");
+console.log("------------- INICI EXERCICIS -------------");
 
 
 
@@ -258,14 +258,15 @@ console.log('\n');
 //* ---------------------------- Mètodes numbers -------------------------------
 
 // exercici 11: defineix una funció calculadora que agafi com a paràmentres una operació i un o dos números 
-// (que poden ser sencers, decimals o fraccions) i faci la operació (+, -, *, /, potència, arrels quadrades i qúbiques)
+// (que poden ser sencers, decimals o fraccions) i faci la operació (+, -, *, /, **, sqrt i cbrt)
 
 // TODO: defineix la funció calculadora() (reutilitza la que vam fer a classe fa uns dies)
 
 //calculadora();
 
 
-// exercici 12: a partir de tres números, calcula si poden ser els tres costats d'un triangle rectangle
+// exercici 12: a partir de tres números, calcula si poden ser els tres costats d'un triangle rectangle aplicant el
+// teorema de Pitàgores (a**2 == b**2 + c**2 és "true" pels triangles rectangles quan "a" és el seu costat més llarg)
 
 console.log("exercici 12: a partir de tres números, calcula si poden ser els tres costats d'un triangle rectangle");
 var c1, c2, c3;
@@ -328,7 +329,11 @@ function calcularAngulos (cateto1, cateto2){
 
 }
 
+<<<<<<< HEAD
 console.log(`%cLa hipotenusa es: ${calcularHipotenusa(c1,c2)}`, 'color:green');  // ha de donar 50
+=======
+console.log(calculaAngles(c1,c2));      // ha de donar 53.13º i 36.87º
+>>>>>>> fb6b906a8b58330e756bdf1a802d9e6c71fdaf57
 
 console.log(`%c${calcularAngulos(c1,c2)}`, 'color:green');      // ha de donar 30º i 60º
 console.log('\n');
@@ -409,10 +414,25 @@ console.log(paraulaRandom(text));
 
 //* ------------------------------ Bucle for ------------------------------------
 
+// compra (prompt en bucle)
+
 
 
 //* ----------------------------- Bucle while -----------------------------------
 
+// do while
+
 
 
 //* ---------------------------- Mètodes arrays ---------------------------------
+
+// replicar split
+
+
+
+//* ------------------------------ Objectes -------------------------------------
+
+// funció amb "this"
+
+
+console.log("-------------------- FI DELS EXERCICIS --------------------");
