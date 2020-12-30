@@ -322,20 +322,16 @@ function calcularAngulos (cateto1, cateto2){
 	var catetoLargo = Math.max(cateto1,cateto2);
 	var catetoCorto = Math.min(cateto1,cateto2);
 	var alphaRad = Math.atan(catetoLargo/catetoCorto);
+
+	//convert angle from rad to degree.
 	var alpha = (alphaRad * 180)/ Math.PI; 
 	var alpha2 = 90 - alpha;
 
-	return `el angulo grande es ${alpha}  y el angulo menor es ${alpha2}`;
+	return `el angulo grande es ${Math.round((alpha + Number.EPSILON) * 100) /100}  y el angulo menor es ${Math.round((alpha2 + Number.EPSILON) *100) / 100}`;
 
 }
 
-<<<<<<< HEAD
-console.log(`%cLa hipotenusa es: ${calcularHipotenusa(c1,c2)}`, 'color:green');  // ha de donar 50
-=======
-console.log(calculaAngles(c1,c2));      // ha de donar 53.13º i 36.87º
->>>>>>> fb6b906a8b58330e756bdf1a802d9e6c71fdaf57
-
-console.log(`%c${calcularAngulos(c1,c2)}`, 'color:green');      // ha de donar 30º i 60º
+console.log(`%c${calcularAngulos(c1,c2)}`, 'color:green');       // ha de donar 53.13º i 36.87º
 console.log('\n');
 
 
@@ -346,11 +342,32 @@ console.log('\n');
 // exercici 14: recrea la funció parseInt() de manera que agafi els números encara que hi hagi lletres abans
 // p.e: "hola89234" ha de tornar "89234", "43'35465adeu" ha de tornar "43", "amor45.9odi" ha de tornar "45"
 
+console.log(`exercici 14: recrea la funció parseInt() de manera que agafi els números encara que hi hagi lletres abans
+// p.e: "hola89234" ha de tornar "89234", "43'35465adeu" ha de tornar "43", "amor45.9odi" ha de tornar "45"`);
 // TODO: defineix la funció convertirEnEnter()
 
-console.log(convertirEnEnter("hola89234"));     // ha de tornar 89234
-console.log(convertirEnEnter("43.35465adeu"));  // ha de tornar 43
-console.log(convertirEnEnter("amor45.9odi"));   // ha de tornar 45
+function convertirEnEnter(input){
+	var result = "";
+	var nextNAN = false;
+
+	for (let char of input){
+		if(isNaN(char)){
+			if(nextNAN){break;}
+			else{continue;}
+		}
+		else{
+			result += char;
+			nextNAN = true
+
+		}
+	}
+	return result;
+}
+
+console.log(`%c${convertirEnEnter("hola89234")}`, 'color:green');     // ha de tornar 89234
+console.log(`%c${convertirEnEnter("43.35465adeu")}`,'color:green');  // ha de tornar 43
+console.log(`%c${convertirEnEnter("amor45.9odi")}`,'color:green');   // ha de tornar 45
+console.log('\n');
 
 
 // exercici 15: recrea la funció parseFloat() de manera que agafi els números encara que hi hagi lletres abans
@@ -359,57 +376,288 @@ console.log(convertirEnEnter("amor45.9odi"));   // ha de tornar 45
 
 // TODO: defineix la funció convertirEnDecimal()
 
-console.log(convertirEnEnter("hola89'234"));     // ha de tornar 89.234
-console.log(convertirEnEnter("43'35adeu"));      // ha de tornar 43.35
-console.log(convertirEnEnter("amor45.9odi"));    // ha de tornar 45.9
+console.log(`exercici 15: recrea la funció parseFloat() de manera que agafi els números encara que hi hagi lletres abans
+i accepti com a separador decimal els símbols ",", "." i "'"
+p.e: "hola89'234" ha de tornar "89.234", "43'35adeu" ha de tornar "43.35", "amor45.9odi" ha de tornar "45.9"`)
+
+function convertirEnDecimal(input){
+	var result = "";
+	var nextNAN = false;
+	var separator = ["," , ", " , ".", "'"];
+
+	for (let char of input){
+		if(isNaN(char)){
+			if(nextNAN){
+				if(separator.includes(char)){
+					result += ".";
+					continue;
+				}
+					break;
+			}
+			else{continue;}
+		}
+		else{
+			result += char;
+			nextNAN = true
+
+		}
+	}
+	return result;
+}
+
+console.log(`%c${convertirEnDecimal("hola89'234")}`, 'color:green');     // ha de tornar 89.234
+console.log(`%c${convertirEnDecimal("43'35adeu")}`,  'color:green');      // ha de tornar 43.35
+console.log(`%c${convertirEnDecimal("amor45.9odi")}`,'color:green');    // ha de tornar 45.9
+console.log('\n');
 
 
 // exercici 16: recrea la funció "valor absolut", que torna el mateix número si és positiu i el mateix número
 // canviat de signe si és negatiu (2 -> 2; -3.4 -> 3.4). No s'hi val usar Math.abs()
 
+console.log(`exercici 16: recrea la funció "valor absolut", que torna el mateix número si és positiu i el mateix número
+canviat de signe si és negatiu (2 -> 2; -3.4 -> 3.4). No s'hi val usar Math.abs()`)
+
 // TODO: defineix la funció valorAbsolut()
+function valorAbsoluto(input){
+	if(input < 0){
+		return 0 - input;
+	}
+	return input
+}
 
-console.log(valorAbsolut(-3.14));        // ha de tornar 3.14
-console.log(valorAbsolut(0));            // ha de tornar 0
-console.log(valorAbsolut(1234.5678));    // ha de tornar 1234.5678
-console.log(valorAbsolut(-1234.5678));   // ha de tornar 1234.5678
-
+console.log(valorAbsoluto(-3.14));        // ha de tornar 3.14
+console.log(valorAbsoluto(0));            // ha de tornar 0
+console.log(valorAbsoluto(1234.5678));    // ha de tornar 1234.5678
+console.log(valorAbsoluto(-1234.5678));   // ha de tornar 1234.5678
+console.log('\n');
 
 // exercici 17: crea una funció que agafi un string i que torni una lletra aleatoria (sense contar espais i signes 
 // de puntuació)
 
-var lletres = "abcdef";
+console.log(`exercici 17: crea una funció que agafi un string i que torni una lletra aleatoria (sense contar espais i signes 
+de puntuació)`);
 
-console.log(lletraRandom(lletres));     // torna una lletra entre la a i la f
+var lletres = "abcafwr!$£%^$^!*&(!()gheht!$£%^$^!*&(!()ewrwdbfewhtjrhcd!$£%^$^!*&(!()ef";
+
+
 
 // TODO defineix la funció lletraRandom()
+function lletraRandom(input){
+	rndPosition = Math.floor(Math.random() * Math.floor(input.length));
+	rndChar = input[rndPosition];
+	//if the char is a letter
+	//return it
+	if(rndChar.toLowerCase() != rndChar.toUpperCase()){
+		return console.log(`%c${input[rndPosition]}`,'color:green');
+	}
+	//recall the function to get a new random position of the string
+	lletraRandom(lletres);
+}
+
+lletraRandom(lletres)   // torna una lletra entre la a i la f
+console.log('\n');
 
 
 // exercici 18: crea una funció que agafi un text i li'n separi les paraules (sense signes de puntuació) i les torni
 // en un nou string separades per espais
+console.log(`exercici 18: crea una funció que agafi un text i li'n separi les paraules (sense signes de puntuació) i les torni
+en un nou string separades per espais`)
 
-var text = "En un lugar de La Mancha de cuyo nombre no quiero acordarme. Què tal, Manel?   Patata"
-
-var paraules = separarParaules(text);
+var text = "En un lugar de La Mancha de cuyo nombre no quiero acordarme. Què tal, Manel?   Patata";
 
 // TODO: defineix la funció separarParaules()
 
-console.log(paraules);
+function separarParaules(input){
+	var word = "";
+	var result = [];
+	for (let char of input){
+		//catching the word letter by letter
+		if(char.toLowerCase() != char.toUpperCase()){
+			word += char;
+		}
+		//if the char is a empty space
+		//then we have a complete word
+		//push it to a list
+		//reset the word variable
+		else if((char ===" ") && (word != "")) {
+			result.push(word);
+			word = "";
+		}
+	}
+	result.push(word);
+	//convert the list to string, separating each word by empty space
+	return result.join(" ");
+}
 
+var paraules = separarParaules(text);
+console.log(`%c${paraules}`, 'color:green');
+console.log('\n');
 
 // exercici 19: crea una funció que agafi un string i que torni una paraula aleatòria continguda en ella (podeu cridar
 // la funció separarParaules() dins d'aquesta funció)
+console.log(`exercici 19: crea una funció que agafi un string i que torni una paraula aleatòria continguda en ella (podeu cridar
+la funció separarParaules() dins d'aquesta funció)`)
 
-console.log(paraulaRandom(text));
 
 // TODO defineix la funció paraulaRandom()
 
+function paraulaRandom(text){
+	var textList = separarParaules(text).split(" ");
+	var rndPosition = Math.floor(Math.random() * Math.floor(textList.length));
+	return textList[rndPosition];
+}
+
+console.log(`%c${paraulaRandom(text)}`,'color:green');
+console.log('\n');
 
 // exercici 20: crea una funció que agafi una data DD/MM per prompt() i et retorni el teu signe de l'horòscop i una 
 // predicció del que et passarà durant el dia
 
-// TODO deifineix la funció horoscop()
+console.log(`exercici 20: crea una funció que agafi una data DD/MM per prompt() i et retorni el teu signe de l'horòscop i una 
+predicció del que et passarà durant el dia`)
 
+// TODO deifineix la funció horoscop()
+function horoscopoEneroMarzo(mes, dia){
+	if(mes == 1){
+		if(dia <= 20){
+			return "Capricornio"
+		}else{
+			return "Acuario";
+		}
+	}
+	else if(mes == 2){
+		if(dia <= 19){
+			return "Acuario"
+		}
+		else{
+			return "Piscis";
+		}
+	}
+	else if(mes == 3){
+		if(dia <= 20){
+			return "Piscis";
+		}
+		else{
+			return "Aries";
+		}
+	}
+}
+
+function horoscopoAbrilJunio(mes, dia){
+	if(mes == 4){
+		if(dia <= 20){
+			return "Aries";
+		}
+		else{
+			return "Tauro";
+		}
+	}
+	if(mes == 5){
+		if(dia <= 21){
+			return "Tauro";
+		}
+		else{
+			return "Geminis";
+		}
+	}
+	if(mes == 6){
+		if(dia <= 21){
+			return "Geminis";
+		}
+		else{
+			return "Cancer";
+		}
+	}
+
+}
+
+function horoscopoJulioSeptiembre(mes, dia){
+	if(mes == 7){
+		if(dia <= 23){
+			return "Cancer";
+		}
+		else{
+			return "Leo";
+		}
+	}
+
+	if(mes == 8){
+		if(dia <= 24){
+			return "Leo"
+		}
+		else{
+			return "Virgo"
+		}
+	}
+
+	if(mes == 9){
+		if(dia <= 23){
+			return "Virgo";
+		}
+		else{
+			return "Libra";
+		}
+	}
+
+}
+
+function horoscopoOctureDiciembre(mes, dia){
+
+	if(mes == 10){
+		if(dia <= 23){
+			return "Libra";
+		}
+		else{
+			return "Escorpio";
+		}
+	}
+	
+
+	if(mes == 11){
+		if(dia <= 22){
+			return "Escorpio";
+		}
+		else{
+			return "Sagitario";
+		}
+	}
+
+	if(mes == 12){
+		if(dia <= 21){
+			return "Sagitario";
+		}
+		else{
+			return "Capricornio";
+		}
+	}
+
+}
+
+
+function horoscopo(){
+
+	userBirthDate = prompt("Escribe tu fecha de nacimiento: DD/MM ");
+
+	var dia = userBirthDate.split("/")[0];
+
+	var mes = userBirthDate.split("/")[1];
+	if(mes <= 3){
+		console.log(`%c${horoscopoEneroMarzo(mes, dia)}`,'color:green');
+	}
+	else if((mes >= 4) && (mes <= 6)){
+		console.log(`%c${horoscopoAbrilJunio(mes, dia)}`,'color:green');
+	}
+	else if ((mes > 6) && (mes <= 9)){
+		console.log(`%c${horoscopoJulioSeptiembre(mes,dia)}`,'color:green');
+	}
+	else if ((mes > 9) && (mes <= 12)){
+		console.log(`%c{horoscopoOctureDiciembre(mes,dia)}`,'color:green');
+	}
+
+
+}
+
+horoscopo();
 
 
 //* ------------------------------ Bucle for ------------------------------------
