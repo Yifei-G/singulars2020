@@ -61,7 +61,7 @@ console.log("exercici 4: defineix una funció pregunta2() que et retorni T agrad
 // TODO: aquí la definició de pregunta2() 
 
 function pregunta2(comida){
-	return `¿Te gusta${comida}`;
+	return `¿Te gusta ${comida}`;
 }
 
 console.log(`%c ${pregunta2("la pizza")} con piña?`,'color: green');
@@ -261,6 +261,13 @@ console.log('\n');
 // (que poden ser sencers, decimals o fraccions) i faci la operació (+, -, *, /, **, sqrt i cbrt)
 
 // TODO: defineix la funció calculadora() (reutilitza la que vam fer a classe fa uns dies)
+
+console.log(`exercici 11: defineix una funció calculadora que agafi com a paràmentres una operació i un o dos números 
+// (que poden ser sencers, decimals o fraccions) i faci la operació (+, -, *, /, **, sqrt i cbrt)`)
+
+function calculadora(){
+
+}
 
 //calculadora();
 
@@ -520,25 +527,25 @@ predicció del que et passarà durant el dia`)
 function horoscopoEneroMarzo(mes, dia){
 	if(mes == 1){
 		if(dia <= 20){
-			return "Capricornio"
+			return "Capricornio: Los Capricornio tienen una gran necesidad de sentirse aceptados e incluidos y mantener un buen estatus social."
 		}else{
-			return "Acuario";
+			return "Acuario: Los Acuario son los más populares del patio y tienen un don de gentes natural que les hace conquistar cualquier evento social. ";
 		}
 	}
 	else if(mes == 2){
 		if(dia <= 19){
-			return "Acuario"
+			return "Acuario: Los Acuario son los más populares del patio y tienen un don de gentes natural que les hace conquistar cualquier evento social. "
 		}
 		else{
-			return "Piscis";
+			return "Piscis: Los Piscis son idealistas y soñadores de nacimiento. Dados de lleno al mundo de la imaginación, sus deseos suelen ser totalmente imposibles y esto les puede llegar a causar una gran frustración con el mundo real.";
 		}
 	}
 	else if(mes == 3){
 		if(dia <= 20){
-			return "Piscis";
+			return "Piscis: Los Piscis son idealistas y soñadores de nacimiento. Dados de lleno al mundo de la imaginación, sus deseos suelen ser totalmente imposibles y esto les puede llegar a causar una gran frustración con el mundo real.";
 		}
 		else{
-			return "Aries";
+			return "Aries: Los Aries son, de todos los signos, los que más cómodos se sienten comenzando nuevos proyectos.";
 		}
 	}
 }
@@ -546,26 +553,26 @@ function horoscopoEneroMarzo(mes, dia){
 function horoscopoAbrilJunio(mes, dia){
 	if(mes == 4){
 		if(dia <= 20){
-			return "Aries";
+			return "Aries: Los Aries son, de todos los signos, los que más cómodos se sienten comenzando nuevos proyectos.";
 		}
 		else{
-			return "Tauro";
+			return "Tauro: Los nacidos bajo este signo no se andan con chiquitas, lo suyo no son las aventuras y los romances breves: sólo se conformarán con su alma gemela.";
 		}
 	}
 	if(mes == 5){
 		if(dia <= 21){
-			return "Tauro";
+			return "Tauro: Los nacidos bajo este signo no se andan con chiquitas, lo suyo no son las aventuras y los romances breves: sólo se conformarán con su alma gemela.";
 		}
 		else{
-			return "Geminis";
+			return "Geminis: Las relaciones pueden llegar a ser muy complicadas para un Géminis. Curiosamente, siendo personas que experimentan cambios constantemente no se sienten muy cómodos cuando sus compañeros evolucionan y toman perspectivas diferentes ante la vida.";
 		}
 	}
 	if(mes == 6){
 		if(dia <= 21){
-			return "Geminis";
+			return "Geminis: Las relaciones pueden llegar a ser muy complicadas para un Géminis. Curiosamente, siendo personas que experimentan cambios constantemente no se sienten muy cómodos cuando sus compañeros evolucionan y toman perspectivas diferentes ante la vida.";
 		}
 		else{
-			return "Cancer";
+			return "Cancer: Los Cáncer tienen una gran tendencia a vivir en el pasado y esto se acentúa aún más cuando están solteros aunque, por el contrario, cuando están en una relación sana, se suelen concentrar más en el futuro próximo y se esfuerzan por cumplir todas sus metas.";
 		}
 	}
 
@@ -574,28 +581,28 @@ function horoscopoAbrilJunio(mes, dia){
 function horoscopoJulioSeptiembre(mes, dia){
 	if(mes == 7){
 		if(dia <= 23){
-			return "Cancer";
+			return "Cancer: Los Cáncer tienen una gran tendencia a vivir en el pasado y esto se acentúa aún más cuando están solteros aunque, por el contrario, cuando están en una relación sana, se suelen concentrar más en el futuro próximo y se esfuerzan por cumplir todas sus metas.";
 		}
 		else{
-			return "Leo";
+			return "Leo: Se dice que los Leo son los más fáciles de reconocer a simple vista por tener un carácter muy marcado, y suele ser verdad. Cuando un Leo entra en la sala, todos los ojos se centran en él.";
 		}
 	}
 
 	if(mes == 8){
 		if(dia <= 24){
-			return "Leo"
+			return "Leo: Se dice que los Leo son los más fáciles de reconocer a simple vista por tener un carácter muy marcado, y suele ser verdad. Cuando un Leo entra en la sala, todos los ojos se centran en él."
 		}
 		else{
-			return "Virgo"
+			return "Virgo: Una de las principales características de los nacidos bajo este signo es su forma lógica y estructurada de hacer las cosas. "
 		}
 	}
 
 	if(mes == 9){
 		if(dia <= 23){
-			return "Virgo";
+			return "Virgo: Una de las principales características de los nacidos bajo este signo es su forma lógica y estructurada de hacer las cosas. ";
 		}
 		else{
-			return "Libra";
+			return "Libra: La característica más inherente a los Libra es que son personas a las que les cuesta muchísimo tomar decisiones sea cual sea la magnitud de estas.";
 		}
 	}
 
@@ -605,29 +612,29 @@ function horoscopoOctureDiciembre(mes, dia){
 
 	if(mes == 10){
 		if(dia <= 23){
-			return "Libra";
+			return "Libra: La característica más inherente a los Libra es que son personas a las que les cuesta muchísimo tomar decisiones sea cual sea la magnitud de estas.";
 		}
 		else{
-			return "Escorpio";
+			return "Escorpio: No hay nada ni nadie más intenso y curioso que un Escorpio. Son personas muy introvertidas, reflexivas y, a menudo, existencialistas.";
 		}
 	}
 	
 
 	if(mes == 11){
 		if(dia <= 22){
-			return "Escorpio";
+			return "Escorpio: No hay nada ni nadie más intenso y curioso que un Escorpio. Son personas muy introvertidas, reflexivas y, a menudo, existencialistas.";
 		}
 		else{
-			return "Sagitario";
+			return "Sagitario: Los Sagitario tienen una gran confianza en sí mismos y a menudo son el alma de la fiesta.";
 		}
 	}
 
 	if(mes == 12){
 		if(dia <= 21){
-			return "Sagitario";
+			return "Sagitario: Los Sagitario tienen una gran confianza en sí mismos y a menudo son el alma de la fiesta.";
 		}
 		else{
-			return "Capricornio";
+			return "Capricornio: Los Capricornio tienen una gran necesidad de sentirse aceptados e incluidos y mantener un buen estatus social.";
 		}
 	}
 
@@ -637,68 +644,183 @@ function horoscopoOctureDiciembre(mes, dia){
 function horoscopo(){
 
 	userBirthDate = prompt("Escribe tu fecha de nacimiento: DD/MM ");
-
-	var dia = userBirthDate.split("/")[0];
-
-	var mes = userBirthDate.split("/")[1];
-	if(mes <= 3){
-		console.log(`%c${horoscopoEneroMarzo(mes, dia)}`,'color:green');
+	//if user click Ok without any dates, or click cancel directly
+	if(userBirthDate){
+		//convert dia and mes in number instead of string
+		//number are easier to manipulate than string
+		var dia = parseInt(userBirthDate.split("/")[0], 10);
+		var mes = parseInt(userBirthDate.split("/")[1], 10);
+		switch(mes){
+			case 1:
+			case 2:
+			case 3:
+			console.log(`%c${horoscopoEneroMarzo(mes, dia)}`,'color:green');
+			break;
+			case 4:
+			case 5:
+			case 6:
+			console.log(`%c${horoscopoAbrilJunio(mes, dia)}`,'color:green');
+			break;
+			case 7:
+			case 8:
+			case 9:
+			console.log(`%c${horoscopoJulioSeptiembre(mes,dia)}`,'color:green');
+			break;
+			case 10:
+			case 11:
+			case 12:
+			console.log(`%c${horoscopoOctureDiciembre(mes,dia)}`,'color:green');
+			break;
+			default:
+			alert("Opsss.. you have entered an invalid date/date format, please try again!")
+			console.log(`%c Opsss.. you have entered an invalid date/date format, please try again!`,'color:red');
+		}
 	}
-	else if((mes >= 4) && (mes <= 6)){
-		console.log(`%c${horoscopoAbrilJunio(mes, dia)}`,'color:green');
+	else{
+		alert("Opsss.. please enter a date!!!")
+		console.log(`%c Opsss..please enter a date!!!`,'color:red');
 	}
-	else if ((mes > 6) && (mes <= 9)){
-		console.log(`%c${horoscopoJulioSeptiembre(mes,dia)}`,'color:green');
-	}
-	else if ((mes > 9) && (mes <= 12)){
-		console.log(`%c{horoscopoOctureDiciembre(mes,dia)}`,'color:green');
-	}
-
-
+	
 }
 
 horoscopo();
-
+console.log('\n');
 
 //* ------------------------------ Bucle for ------------------------------------
 
 // exercici 21: fes un bucle que escrigui 10 vegades a la consola alternant un color i un altre
 
 // TODO el codi aquí
+console.log(`exercici 21: fes un bucle que escrigui 10 vegades a la consola alternant un color i un altre`);
 
+for(i=0;i<10;i++){
+	if(i % 2 == 0){
+		console.log("%c purple", 'color:purple');
+	}
+	else{
+		console.log('%c blue', 'color:blue');
+	}
+}
+console.log('\n');
 
 // exercici 22: fes un bucle que escrigui 20 números i escrigui al seu costat: "hola" si és múltiple de 2, "adeu" si
 // és múltiple de 3 i "què tal? si és múltiple de 5"
 
 // TODO el codi aquí
+console.log(`exercici 22: fes un bucle que escrigui 20 números i escrigui al seu costat: "hola" si és múltiple de 2, "adeu" si
+és múltiple de 3 i "què tal? si és múltiple de 5"`);
 
+for(i=1;i<21;i++){
+	if(i % 2 == 0){
+		console.log(`%c ${i} hola`, 'color:blue');
+		console.log('\n');
+	}
+	if(i % 3 == 0){
+		console.log(`%c ${i} adios`, 'color:brown');
+		console.log('\n');
+	}
+	if(i % 5 == 0){
+		console.log(`%c ${i} como estas`, 'color:darkGreen');
+		console.log('\n');
+	}
+}
+console.log('\n');
 
 // exercici 23: fes un contador que mostri a la consola els números de l'1 al número que introdueixis com a paràmentre
 // (fins a 1000 com a màxim)  PISTA: usa la paraula clau "break"
 
+
+console.log(`exercici 23: fes un contador que mostri a la consola els números de l'1 al número que introdueixis com a paràmentre
+(fins a 1000 com a màxim)  PISTA: usa la paraula clau "break"`);
+
 var max = prompt("Fins quin número vols contar (1-1000)?");
 
 // TODO defineix aquí la funció contar()
-
+function contar(max){
+	//prevent null pointer and user enter non-number inputs...
+	if((!max) || (isNaN(max))) {
+		alert("Opsss.. please enter a number!!!");
+		console.log(`%c Opsss.. please enter a number!!!`,'color:red');
+	}else{
+		//prevent user enter a invalid range
+		if((max > 1000) || (max < 1)){
+			alert("Opsss.. please enter a number between 1 and 1000!");
+			console.log(`%c Opsss.. please enter a number between 1 and 1000!`,'color:red')
+		}
+		else{
+			for(i=1;i<=max;i++){
+				console.log(`%c ${i}`,'color:green');
+			}
+		}
+	}
+}
 contar(max); // això ha de mostrar a la consola els números de l'1 al número introduit
-
+console.log('\n');
 
 // exercici 24: fes un buscador de números primers. Li fixarem un límit (p.e. 100) i agafarà cada número i el dividirà
 // per tots els anteriors; si alguna de les divisions dona zero, llavors no és primer; si cap dona zero, l'escriurà a la
 // consola
 
-// TODO el codi aquí
 
+console.log(`exercici 24: fes un buscador de números primers. Li fixarem un límit (p.e. 100) i agafarà cada número i el dividirà
+// per tots els anteriors; si alguna de les divisions dona zero, llavors no és primer; si cap dona zero, l'escriurà a la
+// consola`);
+// TODO el codi aquí
+var result = [];
+var multiples = [];
+
+//dividendo desde 1 hasta 100
+for(dividendo=1;dividendo<101;dividendo++){
+	//divisor desde 1 hasta el dividendo
+	//ej:  5 : 1
+	//     5 : 2
+	//     5 : 3 (hasta 5:5)
+	for(divisor=1;divisor<=dividendo;divisor++){
+		if(multiples.length <= 2){
+			if(dividendo % divisor == 0)
+				multiples.push(divisor);
+		}
+		else{
+			multiples = [];
+			break;
+		}
+	}
+	//if dividendo solo tiene 2 possible divisor (1 y el mismo)
+	// ponemos este numero en la lista de resultado
+	if(multiples.length == 2)
+		result.push(dividendo);	
+	multiples = [];
+}
+console.log(`%c${result}`,'color:green');
+console.log('\n');
 
 // exercici 25: fes un contador que només mostri els números que tinguin un dígit contingut a la string predefinida fins a 100
 // PISTA: usa la paraula clau "continue"
 
-var digits = prompt("Quins digits vols mostrar (1-9)?");
+console.log(`exercici 25: fes un contador que només mostri els números que tinguin un dígit contingut a la string predefinida fins a 100
+// PISTA: usa la paraula clau "continue"`);
+
+var digitos = prompt("Escribe los digitos (1-9)?");
 
 // TODO defineix la funció mostrarDigits()
 
-mostrarDigits(digits);      // si dígits és 234, això mostrarà "2, 3, 4, 12, 13, 14, 20, 21, 22, 23..."
+function mostrarDigitos(digits){
+	if((isNaN(digits)) || (!digits)){
+		alert("Opsss.. you didn't enter numbers!!");
+		console.log(`%c Opsss.. you didn't enter numbers!!`, 'color:red');
+	}else{
+		for (let number of digits){
+			for(i=0;i<101;i++){
+				if(i.toString().includes(number)){
+					console.log(`%c${i}`,'color:green');
+				}	
+			}
+		}
+	}
+}
 
+mostrarDigitos(digitos);      // si dígits és 234, això mostrarà "2, 3, 4, 12, 13, 14, 20, 21, 22, 23..."
+console.log('\n');
 
 
 //* ----------------------------- Bucle while -----------------------------------
@@ -711,6 +833,42 @@ mostrarDigits(digits);      // si dígits és 234, això mostrarà "2, 3, 4, 12,
 //                       - Aigua
 
 // TODO aquí el codi
+console.log(`exercici 26: llista de la compra. Fes que un prompt es repeteixi fins que l'usuari introdueixi una paraula clau; fins
+// llavors, cada paraula introduida serà un item de la llista de la compra, que s'escriurà després de que l'usuari l'aturi`)
+
+
+userOption = prompt("Escribe los productos de compra, finaliza el programa si escribe:PARAR");
+function verifyProduct(product){
+	return ((userOption) && (isNaN(userOption)))  
+}
+
+if((userOption) && (isNaN(userOption))){
+	var productList = [];
+	debugger;
+	while(userOption.toUpperCase() != 'PARAR'){
+		productList.push(userOption);
+		userOption = prompt("Escribe los productos de compra, finaliza el programa si escribe:PARAR");
+		if(!verifyProduct(userOption)){
+			alert(`Opsss.. you didn't enter a word!!`);
+			console.log(`%c Opsss.. you didn't enter a word!!`, 'color:red');
+			break;
+		}
+	}
+}else{
+	alert(`Opsss.. you didn't enter a word!!`)
+	console.log(`%c Opsss.. you didn't enter a word!!`, 'color:red');
+}
+
+if(productList){
+	console.log(productList);
+
+	productList.forEach(product =>{
+		console.log(`%c ${product}`, 'color:green');
+	})
+}
+else{
+	console.log("%c your shopping list is empty!!", "color:green");
+}
 
 
 
