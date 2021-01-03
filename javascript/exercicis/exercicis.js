@@ -265,12 +265,155 @@ console.log('\n');
 console.log(`exercici 11: defineix una funció calculadora que agafi com a paràmentres una operació i un o dos números 
 // (que poden ser sencers, decimals o fraccions) i faci la operació (+, -, *, /, **, sqrt i cbrt)`);
 
-function calculadora(){
-
+function twoNumPrompt(){
+	num1 = prompt(`Enter the first number for your operation`);
+	num2 = prompt(`Enter the second number for your operation`);
+	if(num1 && num2){
+		if((!isNaN(num1)) && (!isNaN(num2))){
+			return [num1, num2];
+		}
+	}
+	return "Opss... You didn't enter a valid number for operation!"
 }
 
-//calculadora();
+function oneNumPrompt(){
+	num1 = prompt(`Enter a number for your operation`);
+	if( (num1) && (!isNaN(num1))){
+		return parseInt(num1,10);	
+	}
+	return "Opss... You didn't enter a valid number for operation!"
+}
 
+function sum(a, b){
+	return a + b;
+}
+
+function sub(a, b){
+	return a - b;
+}
+
+function multi(a, b){
+	return a * b;
+}
+
+function div(a, b){
+	return a / b;
+}
+
+function mod(a, b){
+	return a % b;
+}
+
+function rootSqrt(a){
+	return Math.sqrt(a);
+}
+
+function rootCbrt(a){
+	return Math.cbrt(a);
+}
+
+
+
+function calculadora(){
+
+	var operation = prompt(`Enter the following number (1-7) for each operation you want to do:
+		1:+, 
+		2:-, 
+		3:*, 
+		4:/, 
+		5:**, 
+		6:sqrt
+		7:cbrt`);
+
+	switch(parseInt(operation,10)){
+		case 1:
+		var data = twoNumPrompt();
+		if(!(typeof(data) === "string")){
+			var num1 = parseInt(data[0],10);
+			var num2 = parseInt(data[1],10);
+			console.log(`%c Result: ${num1} + ${num2} = ${sum(num1, num2)}`,'color:green');
+		}else{
+			alert(data);
+			console.log(`%c${data}`,'color:red');
+		}
+		break;
+
+		case 2:
+		var data = twoNumPrompt();
+		if(!(data instanceof String)){
+			var num1 = parseInt(data[0],10);
+			var num2 = parseInt(data[1],10);
+			console.log(`%c Result: ${num1} - ${num2} = ${sub(num1, num2)}`,'color:green');
+		}else{
+			alert(data);
+			console.log(`%c${data}`,'color:red');
+		}
+		break;
+
+		case 3:
+		var data = twoNumPrompt();
+		if(!(data instanceof String)){
+			var num1 = parseInt(data[0],10);
+			var num2 = parseInt(data[1],10);
+			console.log(`%c Result: ${num1} * ${num2} = ${multi(num1, num2)}`,'color:green');
+		}else{
+			alert(data);
+			console.log(`%c${data}`,'color:red');
+		}
+		break;
+
+		case 4:
+		var data = twoNumPrompt();
+		if(!(data instanceof String)){
+			var num1 = parseInt(data[0],10);
+			var num2 = parseInt(data[1],10);
+			console.log(`%c Result: ${num1} / ${num2} = ${div(num1, num2)}`,'color:green');
+		}else{
+			alert(data);
+			console.log(`%c${data}`,'color:red');
+		}
+		break;
+
+		case 5:
+		var data = twoNumPrompt();
+		if(!(data instanceof String)){
+			var num1 = parseInt(data[0],10);
+			var num2 = parseInt(data[1],10);
+			console.log(`%c Result: ${num1} mod ${num2} = ${mod(num1, num2)}`,'color:green');
+		}else{
+			alert(data);
+			console.log(`%c${data}`,'color:red');
+		}
+		break;
+
+		case 6:
+		var data = oneNumPrompt();
+		if(!(data instanceof String)){
+			console.log(`%c Result: root square of ${data} = ${rootSqrt(data)}`,'color:green');
+		}else{
+			alert(data);
+			console.log(`%c${data}`,'color:red');
+		}
+		break;
+
+		case 7:
+		var data = oneNumPrompt();
+		if(!(data instanceof String)){
+			console.log(`%c Result: cube root of ${data} = ${rootCbrt(data)}`,'color:green');
+		}else{
+			alert(data);
+			console.log(`%c${data}`,'color:red');
+		}
+		break;
+
+
+		default:
+		console.log(`%c You didn't enter a valid option (1-7)`,'color:red');
+	}
+}
+
+calculadora();
+console.log('\n');
 
 // exercici 12: a partir de tres números, calcula si poden ser els tres costats d'un triangle rectangle aplicant el
 // teorema de Pitàgores (a**2 == b**2 + c**2 és "true" pels triangles rectangles quan "a" és el seu costat més llarg)
@@ -390,7 +533,7 @@ p.e: "hola89'234" ha de tornar "89.234", "43'35adeu" ha de tornar "43.35", "amor
 function convertirEnDecimal(input){
 	var result = "";
 	var nextNAN = false;
-	var separator = ["," , ", " , ".", "'"];
+	var separator = [",", ".", "'"];
 
 	for (let char of input){
 		if(isNaN(char)){
@@ -839,12 +982,11 @@ console.log(`exercici 26: llista de la compra. Fes que un prompt es repeteixi fi
 
 userOption = prompt("Escribe los productos de compra, finaliza el programa si escribe:PARAR");
 function verifyProduct(product){
-	return ((userOption) && (isNaN(userOption)))  
+	return ((product) && (isNaN(product)))  
 }
 
-if((userOption) && (isNaN(userOption))){
+if(verifyProduct(userOption)){
 	var productList = [];
-	debugger;
 	while(userOption.toUpperCase() != 'PARAR'){
 		productList.push(userOption);
 		userOption = prompt("Escribe los productos de compra, finaliza el programa si escribe:PARAR");
@@ -861,7 +1003,6 @@ if((userOption) && (isNaN(userOption))){
 
 if(productList){
 	console.log(productList);
-
 	productList.forEach(product =>{
 		console.log(`%c ${product}`, 'color:green');
 	})
@@ -930,13 +1071,13 @@ persona.calcularEdat();
 // exercici 31: crea un objecte que contingui una paraula i el mètode separar() (de l'exercici 27) de tal manera
 // que poguem usar-lo amb el codi següent
 
-var frase = { string = "blaucacavermellcacagroccacamarrócacaverd",
-                // TODO aquí el mètode de l'objecte  
-}
+// var frase = { string = "blaucacavermellcacagroccacamarrócacaverd",
+//                 // TODO aquí el mètode de l'objecte  
+// }
 
-var fraseSeparada = frase.separar("caca");
+// var fraseSeparada = frase.separar("caca");
 
-console.log(fraseSeparada);     // ha de mostrar ["blau", "vermell", "groc", "marró", "verd"]
+// console.log(fraseSeparada);     // ha de mostrar ["blau", "vermell", "groc", "marró", "verd"]
 
 
 // exercici 32: adapta l'exercici de la llista de la compra (ex. 26 i 29) perquè fiqui els elements en un objecte
