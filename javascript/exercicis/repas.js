@@ -170,12 +170,12 @@ console.log(potencia);
 
 var diners = 0;
 
-const afegirDiners = (quantitat) => {
+const estalviarDiners = (quantitat) => {
     diners += quantitat;
 }
 
-afegirDiners(1000);
-afegirDiners(500);
+estalviarDiners(1000);
+estalviarDiners(500);
 
 console.log(diners);
 
@@ -591,6 +591,14 @@ for (face of faces) {
     console.log(face);
 }
 
+// Les tres línies anteriors són equivalents a això:
+
+for (let index = 0; index < faces.length; index++) {
+    const face = faces[index];
+    
+    console.log(face);
+}
+
 // ---------------------------------
 
 var alumnes = ["Ricardo", "Ester", "Eva", "David"];
@@ -649,7 +657,7 @@ var w = "";
 var other = "";
 
 function lletres() {
-    if ((/[a-zA-Z]/).test(word[0])) {       // filtre per saber si el caràcter és una lletra
+    if (/[a-zA-Z]/.test(word[0])) {       // filtre per saber si el caràcter és una lletra
         w += word[0];                       // Una altra manera: word[0].toLowerCase() != word[0].toUpperCase()
     } else {
         other += word[0];
@@ -662,6 +670,16 @@ while (word.length > 0) {
 }
 
 console.log([w, other]);
+
+// -------------------------
+
+var answer = 0;
+
+// while (!isNaN(answer)) {
+//     answer = prompt("Introdueix una paraula");
+// }
+
+// console.log("Felicitats, has introduit una paraula");
 
 // podem usar do/while si volem que el codi s'executi al menys un cop
 
