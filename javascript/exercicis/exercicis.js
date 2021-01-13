@@ -6,7 +6,7 @@ console.log("------------- INICI EXERCICIS -------------");
 
 
 
-//* ------------------------ Variables --------------------------
+// //* ------------------------ Variables --------------------------
 
 console.log("%cExercicis de variables:", "font-weight: bold");
 
@@ -282,8 +282,8 @@ console.log(`exercici 11: defineix una funció calculadora que agafi com a parà
 // (que poden ser sencers, decimals o fraccions) i faci la operació (+, -, *, /, **, sqrt i cbrt)`);
 
 function twoNumPrompt(){
-	num1 = prompt(`Enter the first number for your operation`);
-	num2 = prompt(`Enter the second number for your operation`);
+	num1 = prompt(`Ejercicio 11: Enter the first number for your operation`);
+	num2 = prompt(`Ejercicio 11: Enter the second number for your operation`);
 	if(num1 && num2){
 		if((!isNaN(num1)) && (!isNaN(num2))){
 			return [num1, num2];
@@ -293,7 +293,7 @@ function twoNumPrompt(){
 }
 
 function oneNumPrompt(){
-	num1 = prompt(`Enter a number for your operation`);
+	num1 = prompt(`Ejercicio 11: Enter a number for your operation`);
 	if( (num1) && (!isNaN(num1))){
 		return parseInt(num1,10);	
 	}
@@ -332,7 +332,7 @@ function rootCbrt(a){
 
 function calculadora(){
 
-	var operation = prompt(`Enter the following number (1-7) for each operation you want to do:
+	var operation = prompt(`Ejercicio 11: Enter the following number (1-7) for each operation you want to do:
 		1:+, 
 		2:-, 
 		3:*, 
@@ -802,7 +802,7 @@ function horoscopoOctureDiciembre(mes, dia){
 
 function horoscopo(){
 
-	userBirthDate = prompt("Escribe tu fecha de nacimiento: DD/MM ");
+	userBirthDate = prompt("Ejercicio 20: Escribe tu fecha de nacimiento: DD/MM ");
 	//if user click Ok without any dates, or click cancel directly
 	if(userBirthDate){
 		//convert dia and mes in number instead of string
@@ -953,59 +953,129 @@ for(dividendo=1;dividendo<101;dividendo++){
 console.log(`%c${result}`,'color:green');
 console.log('\n');
 
-// exercici 25: fes un contador que només mostri els números que tinguin un dígit contingut a la string predefinida fins a 100
-// PISTA: usa la paraula clau "continue"
+// // exercici 25: fes un contador que només mostri els números que tinguin un dígit contingut a la string predefinida fins a 100
+// // PISTA: usa la paraula clau "continue"
 
 console.log(`exercici 25: fes un contador que només mostri els números que tinguin un dígit contingut a la string predefinida fins a 100
 // PISTA: usa la paraula clau "continue"`);
 
 var digitos = prompt("Escribe los digitos (1-9)?");
-
 // TODO defineix la funció mostrarDigits()
+const digits = digitos.split(' ');
+digits.forEach(digit =>{
+	mostrarDigitos(digit);      // si dígits és 2 3 4, això mostrarà "2, 3, 4, 12, 13, 14, 20, 21, 22, 23..."
+})
 
-function mostrarDigitos(digits){
-	if((isNaN(digits)) || (!digits)){
+
+function mostrarDigitos(digit){
+	if((isNaN(digit)) || (!digit)){
 		alert("Opsss.. you didn't enter numbers!!");
 		console.log(`%c Opsss.. you didn't enter numbers!!`, 'color:red');
 	}else{
-		for (let number of digits){
-			for(i=0;i<101;i++){
-				if(i.toString().includes(number)){
-					console.log(`%c${i}`,'color:green');
-				}	
-			}
+		debugger;
+		for(i=0;i<101;i++){
+		  	if(i.toString().includes(digit)){
+				console.log(`%c${i}`,'color:green');
+			}	
 		}
 	}
 }
 
-mostrarDigitos(digitos);      // si dígits és 234, això mostrarà "2, 3, 4, 12, 13, 14, 20, 21, 22, 23..."
 console.log('\n');
 
 
 //* ----------------------------- Bucle while -----------------------------------
 
-// exercici 26: llista de la compra. Fes que un prompt es repeteixi fins que l'usuari introdueixi una paraula clau; fins
-// llavors, cada paraula introduida serà un item de la llista de la compra, que s'escriurà després de que l'usuari l'aturi
-// amb el format:       Llista de la compra:
-//                       - Pa
-//                       - Mantega
-//                       - Aigua
+// // exercici 26: llista de la compra. Fes que un prompt es repeteixi fins que l'usuari introdueixi una paraula clau; fins
+// // llavors, cada paraula introduida serà un item de la llista de la compra, que s'escriurà després de que l'usuari l'aturi
+// // amb el format:       Llista de la compra:
+// //                       - Pa
+// //                       - Mantega
+// //                       - Aigua
 
-// TODO aquí el codi
+// // TODO aquí el codi
+
+// // New requirements
+// //separats per seccions (carnisseria, fruita i verdura, làctics, forn de pa) 
 console.log(`exercici 26: llista de la compra. Fes que un prompt es repeteixi fins que l'usuari introdueixi una paraula clau; fins
 // llavors, cada paraula introduida serà un item de la llista de la compra, que s'escriurà després de que l'usuari l'aturi`)
 
 
-userOption = prompt("Escribe los productos de compra, finaliza el programa si escribe:PARAR");
+userOption = prompt(`Ejercicio 26: Escribe los productos de compra, 
+	elige las siguientes opciones para clasificar el tipo del producto:
+	0: carniceria
+	1: fruta y verdura
+	2: lacteos
+	3: pan
+
+	Ejemplo:
+	Manzana tipo:1
+	finaliza el programa si escribe:PARAR`);
 function verifyProduct(product){
 	return ((product) && (isNaN(product)))  
 }
 
 if(verifyProduct(userOption)){
-	var productList = [];
+	//changing the productList structure
+	//it's a list of 4 objects
+	//each object is a list with its own section name.
+	var productList = [
+		{
+			Carniceria:[]
+
+		},
+
+		{
+			Fruta_verdura:[]
+
+		},
+
+		{
+			Lacteos:[]
+		},
+
+		{
+
+			Pan:[]
+		}
+	];
 	while(userOption.toUpperCase() != 'PARAR'){
-		productList.push(userOption);
-		userOption = prompt("Escribe los productos de compra, finaliza el programa si escribe:PARAR");
+		//user's input must be Manzana tipo:1
+		//tipo: will be the separator, we will have a list like:
+		//['Manzana', '1']
+		let [product , tipo ] = userOption.split('tipo:');
+
+		//convert tipo to number for the switch process
+		tipo = parseInt(tipo,10);
+
+		//depends on the tipo value, product goes to different object list....
+		switch(tipo){
+			case 0:
+			productList[0].Carniceria.push(product);
+			break;
+			case 1:
+			productList[1].Fruta_verdura.push(product);
+			break;
+			case 2:
+			productList[2].Lacteos.push(product);
+			break;
+			case 3:
+			productList[3].Pan.push(product);
+			break;
+			default:
+			alert(`Opsss.. The type doesn't exist!!`);
+			console.log(`%c Opsss.. The type doesn't exist!!`, 'color:red');
+		}
+		userOption = prompt(`Ejercicio 26:Escribe los productos de compra, 
+		elige las siguientes opciones para clasificar el tipo del producto:
+		0: carniceria
+		1: fruta y verdura
+		2: lacteos
+		3: pan
+
+		Ejemplo:
+		Manzana tipo:1
+		finaliza el programa si escribe:PARAR`);
 		if(!verifyProduct(userOption)){
 			alert(`Opsss.. you didn't enter a word!!`);
 			console.log(`%c Opsss.. you didn't enter a word!!`, 'color:red');
@@ -1017,15 +1087,29 @@ if(verifyProduct(userOption)){
 	console.log(`%c Opsss.. you didn't enter a word!!`, 'color:red');
 }
 
+
+//showing the list of each object
+//each section is an object, we can't use forEach
+//we can use Object.entries()
+//if one of the list doesn't have any product,
+//then show a empty list message
 if(productList){
-	console.log(productList);
-	productList.forEach(product =>{
-		console.log(`%c ${product}`, 'color:green');
-	})
+	productList.forEach(section =>{
+		for (const [sectionName, productList] of Object.entries(section)){
+			if(productList.length > 0){
+				console.log(`%c ${sectionName}:  ${productList} \n`, 'color:green');
+			}else{
+				console.log(`%c ${sectionName} list is empty!!`, 'color:yellow');
+			}
+			
+		}
+	});
 }
 else{
-	console.log("%c your shopping list is empty!!", "color:green");
+	console.log("%c your shopping list is empty!!", "color:yellow");
 }
+
+console.log('\n');
 
 
 
@@ -1033,70 +1117,181 @@ else{
 
 // exercici 27: dia de la setmana. A partir d'un array amb els dies de la setmana, pinta a la consola quin dia és avui
 
+console.log(`exercici 27: dia de la setmana. A partir d'un array amb els dies de la setmana, pinta a la consola quin dia és avui`);
 var dies = ["dilluns", "dimarts", "dimecres", "dijous", "divendres", "dissabte", "diumenge"]
 
 // TODO aquí el codi
+const today = new Date();
+console.log(`%c Hoy es: ${dies[today.getDay() - 1]}`, 'color:green');
+console.log('\n');
 
 
 // exercici 28: replicar split(). Defineix una funció que separi una cadena de caràcters amb el separador escollit
 
+console.log(`exercici 28: replicar split(). Defineix una funció que separi una cadena de caràcters amb el separador escollit`);
+
 var cadena = "blaucacavermellcacagroccacamarrócacaverd"
 
 // TODO defineix aquó la funció separar()
+function separar(text, separador){
+	debugger;
+	const input = text.replaceAll(separador," ")
+		var word = "";
+		var result = [];
+		for (let char of input){
+			//catching the word letter by letter
+			if(char.toLowerCase() != char.toUpperCase()){
+				word += char;
+			}
+			//if the char is a empty space
+			//then we have a complete word
+			//push it to a list
+			//reset the word variable
+			else if((char ===" ") && (word != "")) {
+				result.push(word);
+				word = "";
+			}
+	}
+	result.push(word);
+	return result
+}
 
-console.log(separar(cadena, "caca"));   // ha de mostrar ["blau", "vermell", "groc", "marró", "verd"]
+console.log(`%c ${separar(cadena, "caca")}`, 'color:green');   // ha de mostrar ["blau", "vermell", "groc", "marró", "verd"]
+console.log('\n');
 
+// // exercici 29: defineix una funció que agafi els elements d'un array i els mogui N elements cap a la dreta
 
-// exercici 29: defineix una funció que agafi els elements d'un array i els mogui N elements cap a la dreta
-
+console.log(`exercici 29: defineix una funció que agafi els elements d'un array i els mogui N elements cap a la dreta`)
 var array = ["primer", "segon", "tercer", "quart", "cinquè"]
-
+var newList = [];
 // TODO defineix aquí la funció moure()
+function mover(list, moves){
+	list.map((item, index)=>{
+		if((index + moves) >= list.length){
+			const newIndex = index + moves - list.length;
+			newList[newIndex] = item;
+		}else{
+			newList[index + moves] = item;
+		}
+		
+	});
+	return newList;
+}
 
-console.log(moure(array, 2));       // ha de mostrar ["quart", "cinquè", "primer", "segon", "tercer"]
-
+console.log(`%c ${mover(array, 2)}`,'color:green');       // ha de mostrar ["quart", "cinquè", "primer", "segon", "tercer"]
+console.log('\n');
 
 // exercici 30: adapta l'exercici de la llista de la compra (ex. 26) perquè fiqui els elements en un array i
 // els ordeni alfabèticament
 
 // TODO aquí el codi
+console.log(`exercici 30: adapta l'exercici de la llista de la compra (ex. 26) perquè fiqui els elements en un array i
+els ordeni alfabèticament`);
 
+if(productList){
+	//we just use .sort() method here in order to have the list orderded.
+	productList.forEach(section =>{
+		for (const [sectionName, productList] of Object.entries(section)){
+			if(productList.length > 0){
+				console.log(`%c ${sectionName}:  ${productList.sort()} \n`, 'color:green');
+			}else{
+				console.log(`%c ${sectionName} list is empty!!`, 'color:yellow');
+			}
+			
+		}
+	});
+}
+else{
+	console.log("%c your shopping list is empty!!", "color:yellow");
+}
 
-// exercici 31: paradoxa de l'aniversari. Genera N dates d'aniversari aleatòries (1-365) en un array i comprova
+console.log('\n');
+
+// // exercici 31: paradoxa de l'aniversari. Genera N dates d'aniversari aleatòries (1-365) en un array i comprova
+// // si hi ha alguna repetida. Fes això per N = 5, 10, 15, 20, 25, 30, 35, 40, 45, 50 i mostra a la consola per quins
+// // hi ha hagut coincidències d'aniversari
+// // TODO aquí el codi
+
+console.log(`exercici 31: paradoxa de l'aniversari. Genera N dates d'aniversari aleatòries (1-365) en un array i comprova
 // si hi ha alguna repetida. Fes això per N = 5, 10, 15, 20, 25, 30, 35, 40, 45, 50 i mostra a la consola per quins
 // hi ha hagut coincidències d'aniversari
+// TODO aquí el codi`);
 
-// TODO aquí el codi
+function randomNum(){
+	return Math.floor(Math.random() * 365) + 1;
+}
+
+function checkDuplicate(list){
+	return(new Set(list).size !== list.length ? true : false)
+}
+
+for(i=5; i<51; i+=5){
+	let list = new Array(i);
+	let j = 0;
+	//adding random numbers to the list
+	while(j < list.length){
+		let num = randomNum();
+		list[j] = num;
+		j++;
+	}
+	//check if the list contains duplicate numbers
+	let result = checkDuplicate(list);
+	if(result){
+		console.log(list);
+		console.log(`list ${list.length}: contains duplicates!`);
+	}else{
+		console.log(list);
+		console.log(`list ${list.length}: doesn't duplicates!`);
+	}
+	console.log(result);
+}
 
 
 
-//* ------------------------------ Objectes -------------------------------------
+
+// //* ------------------------------ Objectes -------------------------------------
 
 // exercici 32: crea un objecte que tingui les propietats "nom", "any" i "edat" i un mètode calcularEdat()
 // que calculi l'edat en funció de l'any de neixement i la guardi a la propietat "edat"
 //// PISTA: useu Date()
 
-var persona = { // TODO aquí les propietats de l'objecte
+console.log(`exercici 32: crea un objecte que tingui les propietats "nom", "any" i "edat" i un mètode calcularEdat()
+// que calculi l'edat en funció de l'any de neixement i la guardi a la propietat "edat"
+//// PISTA: useu Date()`)
+
+var persona = {
+	nombre : 'Yifei',
+	nacimiento: 1991,
+	calcularEdat: ()=>calcularEdad(persona.nacimiento),
 }
 
-persona.calcularEdat();
+function calcularEdad(year){
+	const currentYear = new Date().getFullYear();
+	return currentYear - year;
+}
 
+persona.edad = persona.calcularEdat();
+console.log(`%c ${persona.nombre} ha nacido en ${persona.nacimiento} y tiene ${persona.edad} años`, 'color:green');
+console.log('\n');
 // TODO console.log() que digui "La Maria va nèixer el 1995 i té 25 anys" agafant les propietats de l'objecte
 
 
-// exercici 32: crea un objecte que contingui una paraula i el mètode separar() (de l'exercici 27) de tal manera
+// exercici 33: crea un objecte que contingui una paraula i el mètode separar() (de l'exercici 27) de tal manera
 // que poguem usar-lo amb el codi següent
 
+console.log(`exercici 33: crea un objecte que contingui una paraula i el mètode separar() (de l'exercici 27) de tal manera
+que poguem usar-lo amb el codi següent`)
+
 var frase = { string : "blaucacavermellcacagroccacamarrócacaverd",
-// TODO aquí el mètode de l'objecte  
+	separar: (text, separador)=> separar(text, separador)
 }
 
-// var fraseSeparada = frase.separar("caca");
+var fraseSeparada = frase.separar(frase.string, "caca");
 
-// console.log(fraseSeparada);     // ha de mostrar ["blau", "vermell", "groc", "marró", "verd"]
+console.log(`%c ${fraseSeparada}`,'color:green');     // ha de mostrar ["blau", "vermell", "groc", "marró", "verd"]
 
 
-// exercici 33: adapta l'exercici de la llista de la compra (ex. 26 i 29) perquè fiqui els elements en un objecte
+// exercici 34: adapta l'exercici de la llista de la compra (ex. 26 i 29) perquè fiqui els elements en un objecte
 // separats per seccions (carnisseria, fruita i verdura, làctics, forn de pa) i ordenats alfabèticament. El console.log
 // haurà de mostrar els productes classificats per seccions:           Llista de la compra:
 //                                                                        - Carnisseria
@@ -1108,13 +1303,41 @@ var frase = { string : "blaucacavermellcacagroccacamarrócacaverd",
 //                                                                             + Síndria
 //// PISTA: el prompt demanarà dues paraules: el producte i una lletra per classificar-los (p.e. "magdalenes F")
 
-// TODO: aqui el codi
+console.log(`exercici 34: adapta l'exercici de la llista de la compra (ex. 26 i 30) perquè fiqui els elements en un objecte
+// separats per seccions (carnisseria, fruita i verdura, làctics, forn de pa) i ordenats alfabèticament. El console.log
+// haurà de mostrar els productes classificats per seccions`)
 
 
-// exercici 34: gestionar un CSV. El programa ha d'agafar un string en format CSV i ficar tota la informació dins un array
-// d'objectes amb els noms de les columnes com a propietats
-//// PISTA: necessitareu ajuda. Demaneu-la
-//// PISTA 2: encara que no hi hagi \n per marcar els salts de línia, els detexta igual perquè uso cometes ``
+if(productList){
+	productList.forEach(section =>{
+		for (const [sectionName, productList] of Object.entries(section)){
+			if(productList.length > 0){
+					console.log(`${sectionName}:`)
+				productList.forEach(product =>{
+					console.log(`%c ${product} \n`, 'color:green');
+				})
+				
+			}else{
+				console.log(`%c ${sectionName} list is empty!!`, 'color:yellow');
+			}
+			
+		}
+	});
+}
+else{
+	console.log("%c your shopping list is empty!!", "color:yellow");
+}
+
+console.log('\n');
+
+
+// //TODO: aqui el codi
+
+
+// // exercici 35: gestionar un CSV. El programa ha d'agafar un string en format CSV i ficar tota la informació dins un array
+// // d'objectes amb els noms de les columnes com a propietats
+// // PISTA: necessitareu ajuda. Demaneu-la
+// // PISTA 2: encara que no hi hagi \n per marcar els salts de línia, els detexta igual perquè uso cometes ``
 
 var csv = `Year,Make,Model,Description,Price
 1997,Ford,E350,ac abs moon,3000.00
@@ -1136,6 +1359,42 @@ var csv = `Year,Make,Model,Description,Price
 //                  Description = "",
 //                  Price = 3000.00
 //                 } ];
+
+
+
+
+
+dataList = csv.split('\n');
+
+//this is an array of title
+const keys = dataList.shift();
+let carStructure = {};
+let carList = [];
+keys.split(',').forEach(key =>{
+	carStructure[key] = '';			
+})
+
+//dataList only contains data
+// the title row has been extracted by shift()
+dataList.forEach(data =>{
+		const carAttrs = data.split(',');
+
+		//we need to use a new object for each iteration
+		let car = new Object();
+
+		//we only use carStructure to do the iteration
+		Object.keys(carStructure).forEach((key, index) =>{
+			car[key] = carAttrs[index];
+		});
+
+		//each car added to the list is a different object
+		carList.push(car);
+});
+
+console.log(`This car list is here:`,carList);
+
+
+
 
 
 
