@@ -1237,10 +1237,10 @@ for(i=5; i<51; i+=5){
 	//check if the list contains duplicate numbers
 	let result = checkDuplicate(list);
 	if(result){
-		console.log(list);
+		//console.log(list);
 		console.log(`list ${list.length}: contains duplicates!`);
 	}else{
-		console.log(list);
+		//console.log(list);
 		console.log(`list ${list.length}: doesn't duplicates!`);
 	}
 	console.log(result);
