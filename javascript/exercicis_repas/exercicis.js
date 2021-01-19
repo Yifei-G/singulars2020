@@ -8,7 +8,7 @@ console.log("------------- INICI EXERCICIS -------------");
 
 // //* ------------------------ Variables --------------------------
 
-console.log("%cExercicis de variables:", "font-weight: bold");
+console.log("----------------- Exercicis de variables ---------------");
 
 // exercici 1: intercanvi de variables
 
@@ -17,13 +17,10 @@ console.log("exercici 1: intercanvi de variables");
 var primer, segon;
 
 primer = 1;
+
 segon = 2;
 
-var aux = primer;  // manera amb variable auxiliar
-primer = segon;
-segon = aux;
-
-[primer, segon] = [segon, primer]  // manera amb desestructuració
+// TODO: aquí el teu codi
 
 primer = 2;
 segon = 1;
@@ -35,7 +32,7 @@ console.log('\n');
 
 //* ------------------------- Funcions --------------------------
 
-console.log("%cExercicis de funcions:", "font-weight: bold");
+console.log("----------------- Exercicis de funcions ---------------");
 
 // exercici 2: defineix una funció psicologo() que et pregunti "Com estàs?" al executar-la
 
@@ -58,7 +55,6 @@ function pregunta(comida){
 	console.log(`%c ¿Te gusta${comida}?`,'color: green');
 }
 pregunta("la pizza");
-pregunta("el sushi");
 
 console.log('\n');
 
@@ -83,11 +79,7 @@ console.log('\n');
 console.log(`exercici 5: defineix una funció metresCubicsALitres() que passi metres cúbics a litres i retorni el resultat
  i una altra mostrarSolució() que usi la primera per mostrar per la consola "X metres cúbics són Y litres"`)
 
-const metresCubicsALitres = (m) => m*1000
-
-function mostrarSolució() {
-    console.log(`${m3} metres cúbics són ${metresCubicsALitres(m3)} litres`);
-}
+// TODO: aquí les definicions de metresCubicsALitres() i mostrarSolució() 
 
 var m3 = 8;
 
@@ -132,7 +124,7 @@ console.log('\n');
 
 //* ------------------------------ Condicionals --------------------------------
 
-console.log("%cExercicis de condicionals:", "font-weight: bold");
+console.log("----------------- Exercicis de condicionals ---------------");
 
 // exercici 7: fes un diàleg que et demani la talla de samarreta que vols comprar (S, M, L, XL) i et digui per la consola
 // quina talla has sel·leccionat i t'avisi si sel·lecciones una talla que no és vàlida
@@ -272,6 +264,8 @@ console.log('\n');
 
 
 //* ---------------------------- Mètodes numbers -------------------------------
+
+console.log("----------------- Exercicis de numbers ---------------");
 
 // exercici 11: defineix una funció calculadora que agafi com a paràmentres una operació i un o dos números 
 // (que poden ser sencers, decimals o fraccions) i faci la operació (+, -, *, /, **, sqrt i cbrt)
@@ -502,6 +496,8 @@ console.log('\n');
 
 
 //* ---------------------------- Mètodes strings -------------------------------
+
+console.log("----------------- Exercicis de strings ---------------");
 
 //! ⚠️ en aquests exercicis no s'hi val usar el mètode .split() a no ser que s'indiqui el contrari ⚠️
 
@@ -847,6 +843,8 @@ console.log('\n');
 
 //* ------------------------------ Bucle for ------------------------------------
 
+console.log("----------------- Exercicis de bucles ---------------");
+
 // exercici 21: fes un bucle que escrigui 10 vegades a la consola alternant un color i un altre
 
 // TODO el codi aquí
@@ -1115,6 +1113,8 @@ console.log('\n');
 
 //* ---------------------------- Mètodes arrays ---------------------------------
 
+console.log("----------------- Exercicis d'arrays ---------------");
+
 // exercici 27: dia de la setmana. A partir d'un array amb els dies de la setmana, pinta a la consola quin dia és avui
 
 console.log(`exercici 27: dia de la setmana. A partir d'un array amb els dies de la setmana, pinta a la consola quin dia és avui`);
@@ -1251,6 +1251,8 @@ for(i=5; i<51; i+=5){
 
 // //* ------------------------------ Objectes -------------------------------------
 
+console.log("----------------- Exercicis d'objectes ---------------");
+
 // exercici 32: crea un objecte que tingui les propietats "nom", "any" i "edat" i un mètode calcularEdat()
 // que calculi l'edat en funció de l'any de neixement i la guardi a la propietat "edat"
 //// PISTA: useu Date()
@@ -1340,10 +1342,10 @@ console.log('\n');
 // // PISTA 2: encara que no hi hagi \n per marcar els salts de línia, els detexta igual perquè uso cometes ``
 
 var csv = `Year,Make,Model,Description,Price
-1997,Ford,E350,ac abs moon,3000.00
-1999,Chevy,Venture "Extended Edition",,4900.00
-1999,Chevy,Venture "Extended Edition XL",,5000.00
-1996,Jeep,Grand Cherokee,MUST SELL! air moon-roof loaded,4799.00`
+           1997,Ford,E350,ac abs moon,3000.00
+           1999,Chevy,Venture "Extended Edition",,4900.00
+           1999,Chevy,Venture "Extended Edition XL",,5000.00
+           1996,Jeep,Grand Cherokee,MUST SELL! air moon-roof loaded,4799.00`
 
 // TODO gestionar el csv perquè acabi sent una cosa com la de sota
 

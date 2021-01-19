@@ -1,0 +1,191 @@
+<!-- querySelector -->
+<!-- accedir propietats: style, innerHTML, value -->
+<!-- addEventListener -->
+<!-- location.href -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link id="css" rel="stylesheet" href="">
+
+    <!-- Aquí els elements d'estil CSS -->
+    <style>
+        body{
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        h2{
+            text-align: center;
+        }
+        .form{
+            margin: 1em auto;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 20px;
+        }
+        .cont{
+            max-width: 1024px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .img{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .small{
+            font-size: smaller;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Aquí el codi HTML -->
+
+    <div class="cont">
+        <h2>Exercicis accés al DOM</h2>
+    
+        <p id="par">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex dicta error qui eum nobis animi dolorem exercitationem harum, iste eveniet hic fugiat itaque odit architecto a illum impedit consequatur saepe?</p>
+    
+        <div class="form" style="background-color: grey;">
+            <input type="text" name="" id="text" placeholder="Escriu aquí">
+            <button id="log">Mostrar per la consola</button>
+            <button id="log2">Mostrar per la consola</button><br>
+            <button id="img">Afegeix una imatge</button>
+            <button id="img2">Afegeix una imatge</button>
+        </div>
+
+        <div class="form" style="background-color: grey;">
+            <p>Aquest <i>div</i> no s'ha sel·leccionat perquè el mètode <i>querySelector()</i> només selecciona la primera ocurrència de l'element buscat</p>
+        </div>
+        
+        <div class="form" id="color" style="background-color: #CBCBCB; border-radius: 5px;">
+            <h3 style="text-align: center;">Escriu coses a sota</h3>
+            <input type="text" name="" id="colores">
+            <p class="small">Prova amb les paraules "blau", "vermell" i "verd"</p>
+        </div>
+
+        <div class="img"><!-- Aquest div és per afegir contingut amb JavaScript --></div><br>
+
+        <button id="omar">Ves a la pàgina <i>www.omarolmedoferrer.com</i></button><br>
+        <button id="page">On sóc?</button>
+    </div>
+
+
+
+
+    <!-- Aquest script s'executa al carregar el body -->
+    <script>
+
+        // Seleccionar un element del DOM (Document Object Model):
+        var button = document.querySelector("#log");
+        console.log(button);
+
+        var text = document.querySelector("#text")
+        console.log(text);
+
+        // Afegir un detector d'esdeveniments a un element
+        button.addEventListener("click", mostrar);     // detecta el click al botó i executa la funció mostrar()
+
+        function mostrar() {
+            console.log(text.value);    // mostra la propietat value de l'element text
+        }
+
+        document.querySelector("#log2").addEventListener("click", () => console.log(text.value))  // fa el mateix però amb una funció arrow anònima
+
+        
+
+        // Accedir a una propietat de l'element del DOM:
+        var divForm = document.querySelector(".form");
+
+        var displayDiv = divForm.style.display;   // La propietat .style torna l'estil en linea de l'element, .style.display (en aquest cas és "")
+        console.log("La propietat display del div amb classe form és " + displayDiv);
+
+        var colorDiv = divForm.style.backgroundColor;   // ⚠️ els noms de les propietats usen l'estil camelCase (primera paraula minuscula, la resta mayus)
+        console.log("El color de fons del div amb classe form és " + colorDiv);
+        
+
+        var contingut = button.innerHTML;   // La propietat innerHTML torna en una string el que hi ha entre les etiquetes de l'element
+        console.log(contingut);
+
+        var contingutDiv = divForm.innerHTML;
+        console.log(contingutDiv);
+        
+
+        var styleDivComp = getComputedStyle(divForm).display;     // La funció getComputedStyle() torna l'estil de l'element en el moment de ser cridada
+        console.log("La propietat display (computada) del div amb classe form és " + styleDivComp);  // (estigui en linia o en CSS o sigui un valor per defecte ⚠️)
+        
+
+        
+        // Modificar una propietat de l'element del DOM:
+        var button2 = document.querySelector("#log2");
+
+        button2.innerHTML += " (amb arrow)"     // modifica la propietat innerHTML afegint una cadena de text
+        
+        divForm.style.backgroundColor = "#CDCDCD";  // modifica propietats d'estil 
+        divForm.style.borderRadius = "5px";         // ⚠️ no es pot canviar una propietat del getComputedStyle()
+
+        console.log("El color de fons del div amb classe form és " + getComputedStyle(divForm).backgroundColor);
+        
+        
+        var paragraf = document.querySelector("#par")
+
+        paragraf.innerHTML = "Aquest paràgraf tenia un Lorem Ipsum i ha estat modificat pel JavaScript";
+        paragraf.style.textAlign = "center";
+
+
+        // Afegir elements al DOM:
+        document.querySelector("#img").addEventListener("click", () => {
+            var size = Math.floor(50 + Math.random() * 1000)     // calcula una mida random
+            document.querySelector(".img").innerHTML += `<img src="http://placekitten.com/${size}/${size}" style="margin: 5px; height: 100px; width: 100px" alt="">`
+        });
+        
+        var divImg = document.querySelector(".img");
+        var buttonImg = document.querySelector("#img2");
+        buttonImg.addEventListener("click", () => {
+            divImg.innerHTML = '<img src="http://placekitten.com/100/100" style="margin: 10px auto; display: block" alt="">'
+        });
+
+
+        // Exercici de prova: canviar el color en funció del text
+        var input = document.querySelector("#colores")
+        var divColor = document.querySelector("#color")
+
+        input.addEventListener("input", () => {     // input detecta quan arriba informació del teclat
+            if (input.value.includes("blau")) {
+                divColor.style.backgroundColor = "blue"
+            }
+            if (input.value.includes("verd")) {
+                divColor.style.backgroundColor = "green"
+            }
+            if (input.value.includes("vermell")) {
+                divColor.style.backgroundColor = "red"
+            }
+        })
+
+
+        // Propietat location.href (URL de la pàgina)
+        var botoOmar = document.querySelector("#omar");
+        var botoPage = document.querySelector("#page");
+        
+        botoPage.addEventListener("click", () => {
+            var localitzacio = location.href;    // location.href torna la URL de la pàgina
+            console.log(localitzacio);
+        });
+
+        botoOmar.addEventListener("click", () => {
+            var destination = "http://www.omarolmedoferrer.com";
+            location.href = destination;         // asigna a location.href la URL desitjada
+        });
+
+    </script>
+</body>
+</html>
