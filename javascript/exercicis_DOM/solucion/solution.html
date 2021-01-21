@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="./css/solution.css" rel='stylesheet' type='text/css'>
+    <title>Document</title>
+</head>
+<body>
+    <div class="space ml-3">
+        <h4>Ex1:</h4>
+        <h5>Fes que un botó et saludi per la <strong>consola</strong> dient "Hola, Usuari".</h5>
+        <button id="ex1" class="btn btn-outline-primary btn-sm">Click me</button>
+    </div>
+
+    <div class="space ml-3">
+        <h4>Ex2:</h4>
+        <h5>Fes que un botó agafi el teu nom d'un input de text i et saludi per la <strong>consola</strong>  dient el teu nom.</h5>
+        <h5 class="text-danger">You need to type something to active the button!</h5>
+        
+        <div class="input-group">
+            <input type="text"  id="ex2" placeholder="type your name here...">
+            <div class="input-group-append">
+                <button id="ex2-button" disabled class="btn btn-outline-primary btn-sm">Click me</button>
+            </div>
+        </div>   
+    </div>
+
+    <div class="space ml-3">
+        <h4>Ex3:</h4>
+        <h5>Fes que un botó agafi el teu nom d'un input de text i et saludi escrivint el teu nom al costat del botó (en el HTML).</h5>
+        <h5 class="text-danger">You need to type something to active the button!</h5>
+        <div class="input-group">
+            <input type="text" id="ex3" placeholder="type your name here...">
+            <div class="input-group-append">
+                <button id="ex3-button" disabled class="btn btn-outline-primary btn-sm">Click me</button>
+            </div>
+        </div>   
+        <div>
+            <span id="ex3-span"></span>
+        </div>
+    </div>
+
+    <div class="space ml-3">
+        <h3>Ex4:</h3>
+        <h5>
+            Fes que un botó agafi el teu nom d'un input de text i et saludi escrivint el teu nom al costat del botó (en el HTML) precedit del pronom que hagis escollit en un input radio (selecció única).
+        </h5>
+        <h5 class="text-danger">You need to type something to active the button!</h5>
+        <label for="ex4-radio-button">Student:</label>
+        <input type="radio" id="ex4-radio-button" value="student">
+        <div class="input-group">
+            <input type="text" id="ex4" placeholder="type your name here...">
+            <div class="input-group-append">
+                <button id="ex4-button" disabled class="btn btn-outline-primary btn-sm">Click me</button>
+            </div>
+        </div>   
+        <span id="ex4-span"></span>
+    </div>
+
+
+    <div class="space ml-3">
+        <h3>Ex5:</h3>
+        <h5>
+            Fes que un botó agafi el teu nom d'un input de text i et saludi per la <strong>consola</strong> dient el teu nom amb el color que hagis seleccionat en un input select.
+        </h5>
+        <h5 class="text-danger">You need to type something to active the button!</h5>
+        <div class="my-3">
+            <select name="color" id="ex5-color-select">
+                <option value="">--Please choose a color--</option>
+                <option value="#FF0000">Red</option>
+                <option value="#FFA500">Orange</option>
+                <option value="#008000">Green</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="ex5" placeholder="type your name here...">
+            <div class="input-group-append">
+                <button id="ex5-button" disabled class="btn btn-outline-primary btn-sm">Click me</button>
+            </div>
+        </div>   
+    </div>
+
+
+    <div class="space ml-3">
+        <h3>Ex6:</h3>
+        <h5>Fes que un botó agafi el teu nom d'un input de text i et saludi escrivint el teu nom al costat del botó (en el HTML) amb el color que hagis seleccionat en un input select.</h5>
+        <h5 class="text-danger">You need to type something to active the button!</h5>
+        <div class="my-3">
+            <select name="color" id="ex6-color-select">
+                <option value="">--Please choose a color--</option>
+                <option value="#FF0000">Red</option>
+                <option value="#FFA500">Orange</option>
+                <option value="#008000">Green</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="ex6" placeholder="type your name here...">
+            <div class="input-group-append">
+                <button id="ex6-button" disabled class="btn btn-outline-primary btn-sm">Click me</button>
+            </div>
+        </div>
+        <span id="ex6-span"></span>
+    </div>
+
+
+    <div class="space ml-3">
+        <h3>Ex7:</h3>
+        <h5>Fes que un botó agafi el teu nom d'un input de text i et saludi escrivint el teu nom al costat del botó (en el HTML) amb el color que hagis seleccionat en un input color.</h5>
+        <h5 class="text-danger">You need to type something to active the button!</h5>
+        <div>
+            <label for="ex7-color-picker">Color Picker:</label>
+            <input type="color" id="ex7-color-picker" value="#000000">
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="ex7" placeholder="type your name here...">
+            <div class="input-group-append">
+                <button id="ex7-button" disabled class="btn btn-outline-primary btn-sm">Click me</button>
+            </div>
+        </div>
+        <span id="ex7-span"></span>
+    </div>
+
+    <div class="space ml-3">
+        <h3>Ex8:</h3>
+        <h5>Fes que un botó agafi una temperatura en graus Celsius d'un input de text i la converteixi en graus Fahrenheit.</h5>
+        <h5 class="text-danger">You need to type something to active the button!</h5>
+        <h5 class="text-danger">Only numbers are valid!</h5>
+        <label for="ex8">Temperature en C:</label>
+
+        <div class="input-group">
+            <input type="text" id="ex8" placeholder="temperature in C here...">
+            <div class="input-group-append">
+                <button id="ex8-button" disabled class="btn btn-outline-primary btn-sm">Convert</button>
+            </div>
+        </div>
+        <span id="ex8-span">Result:</span>
+    </div>
+    
+
+
+    <div class="space ml-3">
+        <h3>Ex9:</h3>
+        <h5>Fes un convertidor de graus Fahrenheit, Celsius i Kelvin que agafi la temperatura de un input de text i agafi les unitats originals i de destí de dos inputs select.</h5>
+        <h5 class="text-danger">You need to type something to active the button!</h5>
+        <h5 class="text-danger">Only numbers are valid!</h5>
+
+        <label for="input-temp-unit">Input Unit:</label>
+        <div class="input-group my-3">
+            
+            <select name="input-temp-unit" id="ex9-input-unit">
+                <option value="K">Kelvin</option>
+                <option value="F">Fahrenheit</option>
+                <option value="C">Clesius</option>
+            </select>   
+            
+            <div class="input-group-append">
+                <input type="text" id="ex9" placeholder="your temperature here...">
+            </div>
+        </div>
+        
+        
+    
+        <label for="output-temp-unit">Output Unit:</label>
+        <div class="input-group my-3">
+            
+            <select name="output-temp-unit" id="ex9-output-unit">
+                <option value="K">Kelvin</option>
+                <option value="F">Fahrenheit</option>
+                <option value="C">Clesius</option>
+            </select>
+            
+            <div class="input-group-append">
+                <input id="ex9-output" disabled type="text" id="ex9" placeholder="output">
+            </div>
+        </div>
+
+        <button id="ex9-button" disabled class="btn btn-outline-primary btn-sm">Convert temp</button>
+        
+    </div>
+
+
+    <div class="space ml-3">
+        <h3>Ex10:</h3>
+        <h5>Calculadora simple. Fes una calculadora que agafi dos números de inputs de text i una operació de imput select i t'escrigui el resultat a l'HTML.</h5>
+        <h5 class="text-danger">To active the button, you need to enter 2 numbers</h5>
+        <div class="space">
+            <label for="ex10-input1">Number1:</label>
+            <input type="text" id="ex10-input1" placeholder="type number1 here...">
+            <span id="ex10-span1"></span>
+        </div>
+
+        
+        <div class="space">
+            <label for="calcOption">Operators:</label>
+            <div class="d-inline ml-5">
+                <select name="calcOption" id="ex10-calc-select">
+                    <option value="+">+</option>
+                    <option value="-"> - </option>
+                    <option value="*"> * </option>
+                    <option value="/"> / </option>
+                </select>
+            </div>
+            
+        </div>
+
+        <div class="space">
+            <label for="ex10-input2">Number2:</label>
+            <input type="text" id="ex10-input2" placeholder="type number1 here...">
+            <span id="ex10-span2"></span>
+        </div>
+
+
+        <div class="space">
+            <span>Result:</span>
+            <span id="ex10-span3"></span>
+        </div>
+
+        <div class="space">
+            <button id='ex10-button' class="btn btn-outline-primary btn-sm" disabled>Calculate</button>
+        </div>
+    </div>
+
+    <div class="space ml-3">
+        <h3>Ex11:</h3>
+        <h5>Calculadora guai. Fes una calculadora amb botons i pantalla (+, -, x, /, =, C).</h5>
+        <div class="container ml-3 p-0">
+            <div class="row">
+                <div class="calc-container col-9 col-sm-8 col-md-4">
+                    <div id="calc-result" class="result">Result:</div>
+                    <div class="d-flex justify-content-between">
+                        <div class="num-container">
+                            <div>
+                                <button id="ex11-btn-7" value="7"  class="calc-btn btn btn-outline-secondary">7</button>
+                                <button id="ex11-btn-8" value="8"  class="calc-btn btn btn-outline-secondary">8</button>
+                                <button id="ex11-btn-9" value="9"  class="calc-btn btn btn-outline-secondary">9</button>
+                
+                            </div>
+                
+                            <div>
+                                <button id="ex11-btn-4" value="4"  class="calc-btn btn btn-outline-secondary">4</button>
+                                <button id="ex11-btn-5" value="5"  class="calc-btn btn btn-outline-secondary">5</button>
+                                <button id="ex11-btn-6" value="6"  class="calc-btn btn btn-outline-secondary">6</button>
+                            </div>
+                
+                            <div>
+                                <button id="ex11-btn-1" value="1"  class="calc-btn btn btn-outline-secondary">1</button>
+                                <button id="ex11-btn-2" value="2"  class="calc-btn btn btn-outline-secondary">2</button>
+                                <button id="ex11-btn-3" value="3"  class="calc-btn btn btn-outline-secondary">3</button>
+                            </div>
+                        </div>
+
+                        <div class="operator-container">
+                            <div>
+                                <button id="ex11-btn-0" value="0"  class="calc-btn btn btn-outline-secondary">0</button>
+                                <button id="ex11-btn-sum" value="+"  class="calc-btn btn btn-outline-info">+</button>
+                                <button id="ex11-btn-sub" value="-"  class="calc-btn btn btn-outline-info">-</button>
+                            </div>
+            
+                            <div>
+                                <button id="ex11-btn-mul" value="*"  class="calc-btn btn btn-outline-info">*</button>
+                                <button id="ex11-btn-div" value="/"  class="calc-btn btn btn-outline-info">/</button>
+                                <button id="ex11-btn-c"  class="calc-btn btn btn-outline-danger">C</button>
+                            </div>
+            
+            
+                            <div>
+                                <button id="ex11-btn-point" value="."  class="calc-btn btn btn-outline-dark">.</button>
+                                
+                                <button id="ex11-btn-equ" value="="  class="big-calc-btn btn btn-outline-primary">=</button>
+                
+                            </div>
+                        </div> 
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="space ml-3">
+        <h3>EX11.1:</h3>
+        <h5>Calculadora super guai. Fes una calculadora amb botons i pantalla que tingui accions secundàries (shift)</h5>
+
+    </div>
+    
+</body>
+<script src="./node_modules/jquery/dist/jquery.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="./js/solution.js"></script>
+</html>
