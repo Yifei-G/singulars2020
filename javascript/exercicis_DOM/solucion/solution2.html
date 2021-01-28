@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="./css/solution.css" rel='stylesheet' type='text/css'>
+    <title>Ex 12</title>
+</head>
+<body>
+    <div class="space ml-3 mb-4">
+        <h4>Ex12:</h4>
+        <h5>Llista de la compra simple. Igual que la que funcionava amb prompts però amb imput de text</h5>
+        <h5 class="text-danger">You need to type products in order to active the add button</h5>
+        <h5 class="text-danger">Add all the products you want to buy, when you finish, click "Show list" button to show the shopping list!</h5>
+        <div class="input-group my-3">
+            <input type="text"  id="ex12" placeholder="type your product here...">
+            <div class="input-group-append">
+                <button id="ex12-add-button" disabled class="btn btn-outline-primary btn-sm">Add</button>
+                <button id="ex12-show-button" disabled class="btn btn-outline-danger btn-sm">Show list</button>
+            </div>
+        </div>
+        
+        <div id="successful-alert" class="alert-contianer alert alert-success alert-dismissible" role="alert">
+            Add the product successfully!!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div>
+            <h5>Shopping list:</h5>
+            <ul id="shopping-list">
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="space ml-3 mb-4">
+        <h4>Ex 12.1</h4>
+        <h5>Llista de la compra guai. Igual que la que funcionava amb prompts però amb imput de text i botó per ordenar alfabéticament.</h5>
+
+        <h5 class="text-danger">You need to type products in order to active the add button</h5>
+        <h5 class="text-danger">Add all the products you want to buy, when you finish, click "Show list" button to show the shopping list!</h5>
+        <h5 class="text-danger">You can only order the list after you have displayed the shopping list</h5>
+
+        <div class="input-group my-3">
+            <input type="text"  id="ex12-1" placeholder="type your product here...">
+            <div class="input-group-append">
+                <button id="ex12-1-add-button" disabled class="btn btn-outline-primary btn-sm">Add</button>
+                <button id="ex12-1-show-button" disabled class="btn btn-outline-danger btn-sm">Show list</button>
+                <button id="ex12-1-order-button" disabled class="btn btn-outline-primary btn-sm">Order list</button>
+            </div>
+        </div>
+
+        <div id="successful-alert-1" class="alert-contianer alert alert-success alert-dismissible" role="alert">
+            Add the product successfully!!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div>
+            <div class="d-inline-flex">
+                <h5 class="mr-3">Shopping list:</h5>
+                
+            </div>
+            <ul id="shopping-list-1">
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="space ml-3 mb-4">
+        <h4>Ex12.2</h4>
+        <h5>Llista de la compra super guai. Igual que la que funcionava amb prompts però amb imput de text, selecció de secció del supermercat i botó per ordenar alfabéticament.</h5>
+
+        <h5 class="text-danger">You need to type products in order to active the add button</h5>
+        <h5 class="text-danger">Add all the products you want to buy, when you finish, click "Show list" button to show the shopping list!</h5>
+        <h5 class="text-danger">You can only order the list after you have displayed the shopping list</h5>
+
+        <div>
+            <label for="input-shopping-section">Shopping Section:</label>
+            <select name="input-shopping-section" id="input-shopping-section">
+                <option value="Meat">Meat</option>
+                <option value="Fruit_Vegetable">Fruits & Vegetables</option>
+                <option value="Dairy">Dairy</option>
+                <option value="Bakery">Bakery</option>
+            </select>  
+        </div>
+
+
+        <div class="input-group my-3">
+            <input type="text"  id="ex12-2" placeholder="type your product here...">
+            <div class="input-group-append">
+                <button id="ex12-2-add-button" disabled class="btn btn-outline-primary btn-sm">Add</button>
+                <button id="ex12-2-show-button" disabled class="btn btn-outline-danger btn-sm">Show list</button>
+                <button id="ex12-2-order-button" disabled class="btn btn-outline-primary btn-sm">Order list</button>
+            </div>
+        </div>
+
+        <div id="successful-alert-2" class="alert-contianer alert alert-success alert-dismissible" role="alert">
+            Add the product successfully!!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+
+        <div>
+            <div class="d-inline-flex">
+                <h5 class="mr-3">Shopping list:</h5>
+                
+            </div>
+            <ul id="shopping-list-2">
+
+                
+            </ul>
+        </div>
+
+
+    </div>
+
+    
+</body>
+<script src="./node_modules/jquery/dist/jquery.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="./node_modules//bootstrap/js/dist/util.js"></script>
+<script src="./js/solution2.js"></script>
+</html>

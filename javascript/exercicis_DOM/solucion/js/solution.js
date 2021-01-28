@@ -233,6 +233,28 @@ function div(a, b){
 	return a / b;
 }
 
+function sin(angle){
+    const rad = (angle * Math.PI) / 180;
+    return Math.sin(rad)
+}
+
+function cos(angle){
+    const rad = (angle * Math.PI) / 180;
+    return Math.cos(rad);
+}
+
+function pow(a,b){
+    //a is the base num
+    //b is the exponent
+    return Math.pow(a,b);
+}
+
+function sqrt(a){
+    return Math.sqrt(a);
+}
+
+
+
 function calculator(operator, num1, num2){
     switch(operator){
         case "+":
@@ -243,6 +265,14 @@ function calculator(operator, num1, num2){
             return multi(num1,num2);
         case "/":
              return div(num1, num2);
+        case "sin":
+            return sin(num1);
+        case "cos":
+            return cos(num1);
+        case "pow":
+            return pow(num1, num2);
+        case "sqrt":
+            return sqrt(num1);
         default:
             console.log("ops... something went wrong");
     }
@@ -368,60 +398,109 @@ btn9.addEventListener('click', ()=> {
 
 const btnSum = document.querySelector("#ex11-btn-sum");
 btnSum.addEventListener('click', ()=> {
-    display(btnSum.value);
-    input += btnSum.value;
+    
     catchOperator(btnSum.value)
+    if(shiftPressed){
+        convertOperator("sin");
+        input += 'sin';
+    }else{
+        display(btnSum.value);
+        input += btnSum.value;
+    }
 })
 
 
 const btnSub = document.querySelector("#ex11-btn-sub");
 btnSub.addEventListener('click', ()=> {
-    display(btnSub.value);
-    input += btnSub.value;
+    
     catchOperator(btnSub.value)
+    if(shiftPressed){
+        convertOperator("cos");
+        input += "cos";
+    }else{
+        display(btnSub.value);
+        input += btnSub.value;
+    }
+   
 })
 
 
 const btnMul = document.querySelector("#ex11-btn-mul");
 btnMul.addEventListener('click', ()=> {
-    display(btnMul.value);
-    input += btnMul.value;
+    
     catchOperator(btnMul.value)
+    if(shiftPressed){
+        convertOperator("pow");
+        input += "pow" 
+    }else{
+        display(btnMul.value);
+        input += btnMul.value;
+    }  
 })
 
 const btnDiv = document.querySelector("#ex11-btn-div");
 btnDiv.addEventListener('click', ()=> {
-    display(btnDiv.value);
-    input += btnDiv.value;
     catchOperator(btnDiv.value)
+    if(shiftPressed){
+        convertOperator('sqrt');
+        input += 'sqrt';
+    }else{
+        display(btnDiv.value);
+        input += btnDiv.value;
+    }
 })
 
 const equalBtn = document.querySelector("#ex11-btn-equ");
 equalBtn.addEventListener('click' , ()=>{
     const nums = input.split(calcOperator);
-    const [num1, num2] = nums;
-    if((nums.length == 2) && (num1 != "") && (num2 !== "") ){
+    const [num1, num2] = nums;    
+    if((shiftPressed) && calcOperator != "pow"){
         //debugger;
-        answer  = calculator(calcOperator, parseFloat(num1, 10), parseFloat(num2, 10));
-        result.textContent = `Result: ${answer}`;
-        input = "";
-        input += answer.toString();
-    }else{
-        result.textContent = 'Result: Please enter 2 numbers!!!';
-        input = "";
-
+        const num1 = parseFloat(input,10);
+        //sin, cos and sqart only accepts 1 parameter
+        // pow accept 1 number for base and another for exponent
+        if( (num1 != "") && (!num2)){
+            answer = calculator(calcOperator, num1);
+            result.textContent = `Result: ${answer}`;
+        }else{
+            if(isNaN(num1)){
+                result.textContent = `Result: Error`;
+            }else{
+                result.textContent = 'Result: This operation only accepts 1 number!!!';
+            }
+            
+        }
     }
-    
+    else{
+        if((nums.length == 2) && (num1 != "") && (num2 !== "") ){
+            answer  = calculator(calcOperator, parseFloat(num1, 10), parseFloat(num2, 10));
+            isNaN(answer) ? answer = "Error" : answer;
+            result.textContent = `Result: ${answer}`;
+        }else{
+            result.textContent = 'Result: Please enter 2 numbers!!!';
+        }
+    }
+    input = "";
+    if(!isNaN(answer)){
+        input += answer.toString();
+    }
+    shiftPressed = false;
     calcOperator = "";
-
-})
+});
 
 const pointBtn = document.querySelector("#ex11-btn-point");
 pointBtn.addEventListener('click', ()=>{
     input += pointBtn.value;
     display(pointBtn.value);
-    console.log(input);
-    //debugger;
+})
+
+let shiftPressed = false;
+const shiftBtn = document.querySelector("#ex11-btn-shift");
+shiftBtn.addEventListener('click', ()=>{
+    if(!shiftPressed){
+        shiftPressed = true;
+        display("S");
+    }
 })
 
 
@@ -439,9 +518,43 @@ function clear(){
     result.textContent = "Result:";
     answer = undefined;
     input = "";
+    calcOperator = "";
+    shiftPressed = false;
 }
 
 let calcOperator="";
+let shiftOperator = "";
+function convertOperator(value){
+    opIndex = result.textContent.indexOf(shiftOperator);
+    console.log(result.textContent);
+    if((opIndex != -1) && (shiftOperator != "")){
+        result.textContent = result.textContent.substring(0, opIndex);
+    }else{
+        result.textContent = result.textContent.substring(0, result.textContent.length-1);
+    }
+
+    shiftOperator = value;
+    result.textContent += value;
+}
+
 function catchOperator(value){
-    calcOperator = value;
+    console.log(shiftPressed);
+    if(shiftPressed){
+        if(value === "+"){
+            calcOperator = "sin";
+        }
+        else if(value === "-"){
+            calcOperator = "cos"
+        }
+        else if(value === "*"){
+            calcOperator = "pow";
+        }
+        else if(value === "/"){
+            calcOperator = "sqrt"
+        }
+    }
+    else{
+        calcOperator = value;
+    }
+    
 }

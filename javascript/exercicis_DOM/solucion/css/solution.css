@@ -15,10 +15,14 @@ body{
     margin: 0.2rem;
 }
 
-.big-calc-btn{
-    padding: 1.2rem;
-    margin: 0.2rem;
-    width: 64%;
+.oprator-btn{
+    padding:1.2rem .78rem 1.2rem .78rem;
+    margin:0.2rem;
+}
+
+.oprator-btn-func{
+    padding:1.2rem .4rem 1.2rem .4rem;
+    margin:0.2rem;
 }
 
 .result{
@@ -36,4 +40,8 @@ body{
 .operator-container{
 
     display: inline-block;
+}
+
+.alert-contianer{
+   display: inline-block;
 }
